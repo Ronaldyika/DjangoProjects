@@ -1,0 +1,13 @@
+
+#navmain{
+    background-color: rgb(147, 177, 232);
+}
+
+#navbarNav ul li a{
+    color: black;
+}
+
+#navbarNav ul li a:hover{
+    background-color: white;
+    border-radius: 1rem;
+}

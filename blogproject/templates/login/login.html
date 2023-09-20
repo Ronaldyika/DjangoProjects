@@ -1,0 +1,25 @@
+{% extends 'navbar/nav.html' %}
+
+{% block title %}loginuser--{% endblock  %}
+
+{% block content %}
+
+<br>
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Username</label>
+          {{ form.username }}
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          {{ form.password1 }}
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    <p>Register Instead<a href="{% url 'RegisterUser' %}">Register</a></p>
+
+</div>
+
+{% endblock  %}
