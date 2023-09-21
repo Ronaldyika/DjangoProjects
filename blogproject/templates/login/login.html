@@ -4,22 +4,31 @@
 
 {% block content %}
 
-<br>
-<div class="container">
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-          <label for="username">Username</label><br>
-          {{ form.username }}
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label><br>
-          {{ form.password }}
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
-    <p>Register Instead<a href="{% url 'register' %}">Register</a></p>
-
+<br><br>
+<div class="container " style="float: right;">
+    <div class="container">
+      <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username">Username</label><br>
+            {{ form.username }}
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label><br>
+            {{ form.password }}
+          </div>
+          <button type="submit" class="btn btn-secondary">Login</button>
+        </form>
+      <p>Register Instead<a href="{% url 'register' %}">Register</a></p>
+  </div>
 </div>
+<style>
+  input[type="text"],
+  input[type="password"]{
+    width: 30%;
+    height: 2rem;
+    border-radius: 2rem;
+  }
+</style>
 
 {% endblock  %}
