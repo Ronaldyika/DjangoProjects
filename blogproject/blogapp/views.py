@@ -8,19 +8,14 @@ def index(request):
 def home(request):
     return render(request,'main/home.html')
 
-
-def RegisterUser(request):
+def register(request):
     form = RegisterUserForm()
-
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
-        
         if form.is_valid():
-            username = form.cleaned_data['username']
-            print("The form is valid and saved successfully.")
-
+            form.save()
     else:
         context = {
             'form': form
-        }
+         }
         return render(request, 'login/register.html', context)

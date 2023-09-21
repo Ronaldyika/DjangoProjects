@@ -9,16 +9,16 @@
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Username</label><br>
           {{ form.username }}
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          {{ form.password1 }}
+          <label for="password">Password</label><br>
+          {{ form.password }}
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
       </form>
-    <p>Register Instead<a href="{% url 'RegisterUser' %}">Register</a></p>
+    <p>Register Instead<a href="{% url 'register' %}">Register</a></p>
 
 </div>
 
