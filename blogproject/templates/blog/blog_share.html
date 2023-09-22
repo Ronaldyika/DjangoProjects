@@ -1,0 +1,16 @@
+{% extends 'navbar/nav.html' %}
+
+{% block title %}shareItem{% endblock  %}
+
+{% block content %}
+<br>
+<div class="container">
+    <h1>Share Blog</h1>
+    <p>Share "{{ blog.title }}" with others:</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Share</button>
+    </form>
+
+</div>
+{% endblock  %}

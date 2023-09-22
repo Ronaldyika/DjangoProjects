@@ -1,0 +1,26 @@
+{% extends 'navbar/nav.html' %}
+
+{% block title %}blogs{% endblock  %}
+
+{% block content %}
+<br>
+<div class="container">
+    <h1>Blogs</h1>
+    <div class="row">
+        <div class="col-md-4">
+            {% for i in blog %}
+            <div class="card">
+                    <p>{{ i.content|truncatewords:20 }}</p>
+                    <p>Published by {{ i.author.username }} on {{ i.created_at }}</p>
+                    <hr>
+                    <p>comments <a href="{% url 'blog_detail' i.pk %}" style=" font-size: 1rem;">here</a></p>
+
+            </div>
+            {% empty %}
+              <p>No blogs available.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock  %}

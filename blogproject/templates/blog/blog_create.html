@@ -1,0 +1,16 @@
+{% extends 'navbar/nav.html' %}
+
+{% block title %}create{% endblock  %}
+
+{% block content %}
+<br>
+<div class="container">
+    <h1>Create Blog</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Create</button>
+    </form>
+
+</div>
+{% endblock  %}

@@ -31,12 +31,13 @@ def RegisterUser(request):
 
 
 #_________________________________blogs start__________________________#
+@login_required()
 def blog_list(request):
     blog = BlogPost.objects.filter(is_published = True).order_by('created_at')
-    return render(request,'blog/blogpost_list.html',{'blog':blog})
+    return render(request,'blog/blog_list.html',{'blog':blog})
 
 
-
+@login_required()
 def blog_detail(request,pk):
     blog = get_object_or_404(BlogPost,pk=pk,is_published = True)
     comment = Comment.objects.filter(blog = blog).order_by('created_at')
@@ -54,7 +55,7 @@ def blog_detail(request,pk):
         return render(request,"blog/blog_detail.html",{'form':form,'comment':comment,'form':form})
 
 
-
+@login_required()
 def blog_create(request):
     if request.method == 'POST':
         form = BlogPostForm(request.POST)
@@ -67,7 +68,7 @@ def blog_create(request):
         form = BlogPostForm()
         return render(request,'blog/blog_create.html',{'form':form})
     
-
+@login_required()
 def blog_share(request,pk):
     blog = get_object_or_404(BlogPost,pk=pk)
     if request.method == 'POST':

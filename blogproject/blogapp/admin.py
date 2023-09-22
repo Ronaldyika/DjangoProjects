@@ -1,3 +1,6 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import BlogPost,BlogShare,Comment,UserProfile
+admin.site.register(BlogPost)
+admin.site.register(BlogShare)
+admin.site.register(Comment)
+admin.site.register(UserProfile)
