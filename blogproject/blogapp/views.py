@@ -33,9 +33,8 @@ def RegisterUser(request):
 #_________________________________blogs start__________________________#
 @login_required()
 def blog_list(request):
-    blog = BlogPost.objects.filter(is_published = True).order_by('created_at')
-    coment = Comment.objects.order_by('created_at')
-    return render(request,'blog/blog_list.html',{'coment':coment})
+    blog = BlogPost.objects.filter(is_published = True).order_by('created_at')  
+    return render(request,'blog/blog_list.html',{'blog':blog})
 
 @login_required()
 def blog_detail(request,pk):
@@ -52,7 +51,7 @@ def blog_detail(request,pk):
             return redirect('blog_detail',pk=pk)
     else:
         form = CommentForm()
-        return render(request,"blog/blog_detail.html",{'form':form,'comment':comment,'form':form})
+        return render(request,"blog/blog_detail.html",{'form':form,'comment':comment})
 
 
 @login_required()

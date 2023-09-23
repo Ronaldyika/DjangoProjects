@@ -7,13 +7,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            {% for i in coment %}
+            {% for i in blog %}
             <div class="card">
-                <img src="{{ i.blog.pic.profile_picture.url }}" alt="Profile">
+                <img src="{{ i.pic.profile_picture.url }}" alt="Profile">
                 <p>{{ i.content|truncatewords:20 }}</p>
                 <p>Published by {{ i.author.username }} on {{ i.created_at }}</p>
                 <hr>
-                <p>comments <a href="{% url 'comment' i.id %}" style=" font-size: 1rem;">here</a></p>
+                <p>blog details <a href="{% url 'blog_detail' i.pk %}" style=" font-size: 1rem;">here</a></p>
 
             </div>
             {% empty %}

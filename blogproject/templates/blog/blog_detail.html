@@ -5,20 +5,24 @@
 {% block content %}
 <br>
 <div class="container">
-    <h1>{{ blog.title }}</h1>
-    <p>{{ blog.content }}</p>
-    <p>Published by {{ blog.author.username }} on {{ blog.created_at }}</p>
-  
-    <h2>Comments</h2>
-    {% for comment in comments %}
-      <div class="comment">
-        <p>{{ comment.content }}</p>
-        <p>By {{ comment.author.username }} on {{ comment.created_at }}</p>
+    <div class="row">
+      <div class="col-md-4 p-3 mx-5" >
+        {% for i in comment %}
+          <div class="comment card mt-4 mx-4">
+            <p style="background-color: rgb(168, 168, 227);border-bottom-style: outset;border-bottom-right-radius: 1rem;">{{ i.content }}</p>
+            <div>
+            <ul>
+              <li>by:{{ i.author }}</li>
+              <li>{{ i.created_at }}</li>
+            </ul>
+          </div>
+        </div>
+      {% empty %}
+        <p>No comments yet.</p>
+      {% endfor %}
+    
       </div>
-    {% empty %}
-      <p>No comments yet.</p>
-    {% endfor %}
-  
+    </div>
     <h2>Add a Comment</h2>
     <form method="post">
       {% csrf_token %}
