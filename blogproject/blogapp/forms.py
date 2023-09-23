@@ -12,9 +12,9 @@ class RegisterUserForm(UserCreationForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('blog','author','content')
+        fields = ['content']
 
 class BlogPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ('title','content','author','is_published')
+        fields = ('title','content','is_published')

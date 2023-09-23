@@ -9,7 +9,10 @@
       <div class="col-md-4 p-3 mx-5" >
         {% for i in comment %}
           <div class="comment card mt-4 mx-4">
-            <p style="background-color: rgb(168, 168, 227);border-bottom-style: outset;border-bottom-right-radius: 1rem;">{{ i.content }}</p>
+            <div class="card ">
+            {{ i.blog.content }}
+            </div>
+            <p class="mt-2" style="background-color: rgb(132, 193, 210);border-bottom-style: outset;margin-left: 50%;">{{ i.content }}</p>
             <div>
             <ul>
               <li>by:{{ i.author }}</li>
@@ -27,8 +30,9 @@
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Add Comment</button>
+      
+      <button type="submit">Send</button>
     </form>
-
+    <p>back to :<a href="{% url 'blog_list' %}">blogs</a></p>
 </div>
 {% endblock  %}
