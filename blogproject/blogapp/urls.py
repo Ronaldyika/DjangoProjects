@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views as user_views
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', user_views.index, name='index'),
@@ -21,4 +23,10 @@ urlpatterns = [
     path('<int:pk>/', user_views.blog_detail, name='blog_detail'),
     path('<int:pk>/share/', user_views.blog_share, name='blog_share'),
     #_________________blog_urls end________________#
+
+    path('blog/<int:blog_id>/comment/', user_views.comment, name='comment'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 
