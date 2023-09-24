@@ -8,11 +8,12 @@
     <div class="row">
         <div class="col-md-4">
             {% for i in blog %}
-            <div class="card">
-                <img src="{{ i.pic.profile_picture.url }}" alt="Profile">
-                <p>{{ i.content|truncatewords:20 }}</p>
-                <p>Published by {{ i.author.username }} on {{ i.created_at }}</p>
-                <hr>
+            <div class="card mt-3">
+                <div class="card-body bg-info" style="border-bottom-right-radius: 25%; border-top-left-radius: 25%;">
+                <p>{{ i.content|truncatewords:20 }}</p><span>
+                <p>BY: {{ i.author.username }}</p>
+                </div>
+                <p>{{ i.created_at }}</p></span>
                 <p>blog details <a href="{% url 'blog_detail' i.pk %}" style=" font-size: 1rem;">here</a></p>
 
             </div>

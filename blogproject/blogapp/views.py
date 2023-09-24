@@ -34,7 +34,8 @@ def RegisterUser(request):
 @login_required()
 def blog_list(request):
     blog = BlogPost.objects.filter(is_published = True).order_by('created_at')  
-    return render(request,'blog/blog_list.html',{'blog':blog})
+    pic = UserProfile.objects.all();
+    return render(request,'blog/blog_list.html',{'blog':blog,'pic':pic})
 
 @login_required()
 def blog_detail(request,pk):
@@ -78,6 +79,8 @@ def blog_share(request,pk):
 
 
 #_______________________________comment section_____________________#
+
+@login_required()
 def comment(request, blog_id):
     blog = get_object_or_404(BlogPost, pk=blog_id)
     comments = blog.comments.all()
@@ -91,6 +94,7 @@ def comment(request, blog_id):
 
 #============================start of userprofile=======================#
 
+@login_required()
 def userprofile(request, user_id):
     userprofile = get_object_or_404(UserProfile, user_id=user_id)
     context = {

@@ -5,16 +5,16 @@
 {% block content %}
 <br>
 <div class="container">
-    <div class="row">
-      <div class="col-md-4 p-3 mx-5" >
+    <div class="row mx-5">
+      <div class="col-md-6 p-3 mx-5" >
         {% for i in comment %}
           <div class="comment card mt-4 mx-4">
-            <div class="card ">
+            <div class="card mr-5 p-2 ml-1 mt-1" style="border-bottom-left-radius: 30%; border-top-right-radius:30%;">
             {{ i.blog.content }}
             </div>
-            <p class="mt-2" style="background-color: rgb(132, 193, 210);border-bottom-style: outset;margin-left: 50%;">{{ i.content }}</p>
+              <p class="mt-2 p-2 mr-3 bg-info" style="border-bottom-style: outset;margin-left: 50%;border-bottom-left-radius: 25%;border-top-right-radius: 20%;">{{ i.content }}</p>
             <div>
-            <ul>
+            <ul style="list-style: none;">
               <li>by:{{ i.author }}</li>
               <li>{{ i.created_at }}</li>
             </ul>
@@ -26,13 +26,18 @@
     
       </div>
     </div>
-    <h2>Add a Comment</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      
-      <button type="submit">Send</button>
-    </form>
-    <p>back to :<a href="{% url 'blog_list' %}">blogs</a></p>
+    <div class="row ml-5">
+      <div class="col-md-6 ml-5">
+        <div class="">
+          <h2>Comment</h2>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.content }}
+          <button type="submit" class="btn btn-dark">Send</button>
+        </form>
+        <p>back to :<a href="{% url 'blog_list' %}">blogs</a></p>
+        </div>
+      </div>
+    </div>
 </div>
 {% endblock  %}
