@@ -1,0 +1,50 @@
+{% extends 'nav_footer.html' %}
+{% block content %}
+
+<div class="container text-center" id="maincontent">
+    {% for card in cards %}
+        <img  src="{{ card.image.url }}" style="width: 100%;height: 20rem;object-fit:unset;overflow: hidden;" class="img-thumbnail" alt="{{ post.title }}">     
+        <div class="card-body">
+          <marquee behavior="" direction="right">
+            <div class="card-title">
+              <div class="row">
+                <div class="col-4 text-center">
+                  <h4 style="color:rgb(220, 98, 23);">{{ card.description}}</h4>
+                </div>
+              </div>
+            </div>
+          </marquee>  
+          <div class="card-body">
+            <h5 class="display2" style="color: black;">Proceed to make donations.. <a href="{% url 'donation' %}" style="text-decoration: none;">DONATE</a></h5>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+<div class="header">
+  <br><br><hr>
+    <header>
+        <div class="container">
+          <h3 class=" text-center "><b>Completed Tasks</b></h3>
+          <div class="row">
+            {% for post in posts %}
+            <div class="col-md-3 mb-3">
+              <div class="card">
+                <img src="{{ post.image.url }}" style="height: 300px; object-fit: cover;" class="card-img-top img-thumbnail" alt="{{ post.title }}">
+                <div class="card-body">
+                  <h5 class="card-title text-center" style="color: rgb(229, 107, 7);">{{ post.title }}</h5>
+                  <hr>
+                  <p class="card-text">{{ post.description }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+    </header>
+
+    <style>
+        #maincontent{
+            margin-top: 20%;
+        }
+    </style>
+{% endblock %}

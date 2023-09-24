@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Resume Ronald Yika</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css" rel="stylesheet' %}">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Ronald Yika</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a class="active" href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'resume' %}">Resume</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <div class="header-social-links">
+        <a href="https://twitter.com/Ronaldyika" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://web.facebook.com/profile.php" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/ronaldyika" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="resume-title">Sumary</h3>
+            <div class="resume-item pb-0">
+              <h4>Ronald Yika</h4>
+              <p><em>am an innovative,date-line driven django developer with over 2+ years experience</em></p>
+              <p>
+              <ul>
+                <li>(+237) 651-210-000</li>
+                <li>buhnyuyronald@gmail.com</li>
+              </ul>
+              </p>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4> Software Engineering</h4>
+              <h5>2020 - 2026</h5>
+              <p><em>National Higher Polytechnic Institute Bamenda (NAHPI),bambili</em></p>
+              <p>i started my carrier in development in NAHPI and joint the GOOGLE DEVELOPERS CLUB  in bamenda which is organised and help build students up
+                and this boasted my level
+              </p>
+            </div>
+            <div class="resume-item">
+              <h4>Bachelor Software Engineering</h4>
+              <h5>2020 - 2025</h5>
+              <p><em>National Higher Polytechnic Institute Bamenda (NAHPI),bambili</em></p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Senior Web Developer </h4>
+              <h5>..........</h5>
+              <p><em>In Process</em></p>
+              <p>
+              <ul>
+                <li>Continuous Learning: As a senior software developer, it is essential to have a strong aspiration for continuous learning. The field of software development is constantly evolving, with new technologies, frameworks, and best practices emerging regularly.  i am currently keeping myself updated with the latest technologies in preparationfor this role</li>
+                <li>Technical Excellence and Innovation: Striving for technical excellence should be a core aspiration for senior software developers. This entails writing high-quality, scalable, and maintainable code, adhering to best practices, and continuously improving coding skills. </li>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy;<strong><span>Inner Peace </span></strong>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

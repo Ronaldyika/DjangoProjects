@@ -1,0 +1,93 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #659DBD;
+        padding: 10px;
+    }
+
+    nav ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 10px;
+    }
+
+    nav ul li:hover {
+        background-color: rgb(143, 198, 253);
+        color: #fff;
+        transition: 0.8s;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+    }   
+
+
+
+    .chat-room h3 {
+        color: #000;
+    }
+
+    .chat-room h3 {
+        background-color: gray;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .chat-room h3 a {
+        text-decoration: none;
+        color: white;
+    }
+
+
+    .chat-body, .message {
+        /* max-height: 100vh; */
+        width: 100%;
+        border-radius: 10px;
+        display: flex;      
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .chat-body .message .receive, .send {
+        background-color: #DAAD86;
+        max-width: 400px;
+       
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .send:hover {
+        padding: 15px;
+        transition: 0.8s;
+    }
+
+    .receive:hover {
+        padding: 15px;
+        transition: 0.8s;
+    }
+
+    .chat-body .message .send {
+        align-self: flex-end;
+    }
+
+    .chat-body .message .receive {
+        align-self: flex-start;
+    }
+
+    form textarea {
+        width: 60%;
+        height: 40px;
+        border-radius: 3rem;
+        padding: 10px;
+    }
