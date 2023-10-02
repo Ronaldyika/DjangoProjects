@@ -20,7 +20,7 @@
         let plan = "";
         let ref = '{{ payment.ref }}'
         let obj = {
-            key:"{{ paystack public key }}",
+            key:"{{ PAYSTACK_PUBLIC_KEY }}",
             email: "{{ payment.email }}",
             amount:"{{ payment.amount_value }}",
             ref:ref,

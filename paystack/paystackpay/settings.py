@@ -130,8 +130,8 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-PAYSTACK_SECRET_KEY = os.environ.get('PAYSTACK_SECRET_KEY')
-PAYSTACK_PUBLIC_KEY = os.environ.get('PAYSTACK_PUBLIC_KEY')
+PAYSTACK_SECRET_KEY = os.environ.get('sk_test_c443985b2101fb8f8103efc3cf795a606644d8b3')#PAYSTACK_SECRET_KEY
+PAYSTACK_PUBLIC_KEY = os.environ.get('pk_test_805fd9cdc5d00a69e60f8ef816ca35de533dd6ad')#PAYSTACK_PUBLIC_KEY
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

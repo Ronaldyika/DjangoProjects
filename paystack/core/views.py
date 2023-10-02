@@ -12,7 +12,7 @@ def initiate_payment(request:HttpRequest)->HttpResponse:
         payment_form = forms.PaymentForm(request.POST)
         if payment_form.is_valid():
             payment = payment_form.save()
-            return render(request,'make_payment.html',{"payment":payment, 'paystack_public_key':settings.paystack_public_key})
+            return render(request,'make_payment.html',{"payment":payment, 'paystack_public_key':settings.PAYSTACK_PUBLIC_KEY})
     else:
         payment_form = forms.PaymentForm()
 
