@@ -1,0 +1,79 @@
+{% extends 'nav_footer/nav.html' %}
+{% load static %}
+
+{% block title %}homepage{% endblock %}
+
+
+{% block content %}
+    <section id="team" class="team section-bg">
+        <div class="container">
+  
+          <div class="section-title" data-aos="fade-up">
+            <h2>About <strong> US</strong></h2>
+            <p>
+                ABADU (ABASSAKOM DEVELOPMENT UNION) is a political, secular, non-confessional organization with the objectives To foster the socio-economic and cultural development of Fundong sub-division,To cooperate with the administration in promoting all initiatives that are legally recognized for the development of Fundong sub-division,
+                educate Abassakom masses in collaboration with the village development union on all socio-cultural and economic practices that are likely to improve the standards of living of Abassakom people.
+            </p>
+          </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up">
+                <div class="member-img">
+                  <img src="{% static 'assets/img/team/team1.jpg' %}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Mr Peter</h4>
+                  <span>Founder of Abassacom</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="{% static 'assets/img/team/team1.jpg' %}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>mrs Rene</h4>
+                  <span>Product Manager</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="200">
+                <div class="member-img">
+                  <img src="{% static 'assets/img/team/team1.jpg' %}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>William</h4>
+                  <span>CTO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+
+{% endblock %}
