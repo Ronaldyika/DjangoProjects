@@ -26,7 +26,6 @@ def AdminRegistrationView(request):
     
 
 #---------------------------------gallery and upcoming task-----------------------
-
 def AdminGallery(request):
     form = GalleryForm()
     posts = Gallery.objects.all()

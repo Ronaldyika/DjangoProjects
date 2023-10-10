@@ -17,7 +17,7 @@ urlpatterns = [
 
    path('admin_registration/',views.AdminRegistrationView,name='AdminRegistration'),
    path('loginabadu_admin/',auth_views.LoginView.as_view(template_name = 'authentication/login.html'),name='AdminLogin'),
-   path('logOutabadu_admin/',auth_views.LoginView.as_view(template_name = 'index.html'),name='AdminLogOut'),
+   path('logoutabadu_admin',auth_views.LogoutView.as_view(template_name = 'authentication/logout.html'),name='AdminLogOut'),
 
 
    #--------------------------admin uploads-----------------------
