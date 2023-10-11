@@ -26,27 +26,29 @@ def AdminRegistrationView(request):
     
 
 #---------------------------------gallery and upcoming task-----------------------
-class AdminUpdateDeleteView(View):
-    def put(request,pk):
-        item = get_object_or_404(Gallery, pk=pk)
-        if request.method == 'POST':
-            form = GalleryForm(request.POST, request.FILES, instance=item)
-            if form.is_valid():
-                form.save()
-                return redirect('admingallery')
-        else:
-            form = GalleryForm(instance=item)
-            return render(request, 'admin_pannel/gallery.html', {'form': form})
-        
-    #-----------------------delete function-------------------------------    
-    def delete(request,pk):
-        item = Gallery.objects.filter(pk=pk)
-        item.delete()
-        return redirect('admingallery')
+
+def UpdateGallery(request, pk):
+    item = get_object_or_404(Gallery, pk=pk)
+    if request.method == 'POST':
+        form = GalleryForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('admingallery')
+    else:
+        form = GalleryForm(instance=item)
+    return render(request, 'admin_pannel/gallery.html', {'form': form, 'item': item})
+
+#-----------------------delete function-------------------------------    
+def deleteblog(request,pk):
+    item = Gallery.objects.filter(pk=pk)
+    item.delete()
+    return redirect('admingallery')
 
 
 
 
+
+#-----------------------------upcoming update function---------------------
 def AdminGallery(request):
     form = GalleryForm()
     posts = Gallery.objects.all()
@@ -75,9 +77,6 @@ def UpcomingTask(request):
             return redirect('UpcomingTask')
     else:
         return render(request,'admin_pannel/upcoming.html',{'form':form,'posts':posts})
-    
-    
-
 
 #--------------------------------customer section-------------------------------------
 class UserViewdetials(View):
@@ -90,3 +89,4 @@ class UserViewUpcoming(View):
     def get(self,request):
         posts = UpcomingEvent.objects.all()
         return render(request,'partials/upcoming.html',{'posts':posts})
+    

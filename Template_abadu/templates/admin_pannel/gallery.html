@@ -19,10 +19,10 @@
                   <p class="card-text" >{{ post.description }}</p>
                   <div class="row text-center">
                     <div class="col-6">
-                      <button class="btn-button btn bg-danger btn-block"><a href="" style="text-decoration: none; color: white;">Delete</a></button>
+                      <button class="btn-button btn bg-danger btn-block"><a href="{% url 'delete_gallery' pk=post.pk  %}" style="text-decoration: none; color: white;">Delete</a></button>
                     </div>
                     <div class="col-6">
-                      <button class="btn-button btn bg-success btn-block"><a href="" style="text-decoration: none; color: white;">Update</a></button>
+                      <button class="btn-button btn bg-success btn-block"><a href="{% url 'update_gallery' pk=post.pk %}" style="text-decoration: none; color: white;">Update</a></button>
                     </div>
                   </div>  
                 </div>
