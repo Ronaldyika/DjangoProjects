@@ -1,0 +1,57 @@
+{% extends 'admin_pannel/index.html' %}
+
+{% block title %}gallery upload{% endblock %}
+
+{% block content %}
+<br>
+<div class="container-fluid mt-5">
+
+    <h2 class="text-center mt-3"><marquee behavior="" direction="">{{ user.username }} welcome to the admin dashboard</marquee></h2><br>
+    <div class="card">
+        <div class="row text-center mt-3 p-2">
+            {% for post in posts %}
+            <div class="col-md-6 mb-3">
+              <div class="card">
+                <img src="{{ post.image.url }}" style="height: 300px; object-fit: cover;" class="card-img-top" alt="{{ post.title }}">
+                <div class="card-body">
+                  <p class="card-text float-end" >{{ post.date_posted }}</p><hr>
+                  <p class="card-text" >{{ post.description }}</p>
+                  <div class="row text-center">
+                    <div class="col-6">
+                      <button class="btn-button btn bg-danger btn-block"><a href="" style="text-decoration: none; color: white;">Delete</a></button>
+                    </div>
+                    <div class="col-6">
+                      <button class="btn-button btn bg-success btn-block"><a href="" style="text-decoration: none; color: white;">Update</a></button>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-3 col-lg-3"></div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form">
+                    <form method="post"  class="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea required="true" cols="10" rows="4"  name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
+                        </div><br> 
+                        <div class="form-group form-img">
+                            <label for="image">Upload Image</label>
+                            <input type="file" name="image"  id="image" class="form-control-file">
+                        </div>
+                        <button class="btn btn-button bg-secondary mt-2"><a href="" style="text-decoration: none; color: white;">Back</a></button>
+                        <button type="submit" class="btn btn-success float-right mt-2">Submit</button>
+                    </form><br>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

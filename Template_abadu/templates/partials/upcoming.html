@@ -1,0 +1,33 @@
+{% extends 'partials/user_nav.html' %}
+
+{% block title %}Upcoming task{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container-fluid mt-5">
+    <div class="card mt-2 mb-5">
+        <div class="row text-center mt-3 p-2">
+            <h2 class="text-center"><marquee behavior="" direction="">
+                ABASEKOM upcoming Events
+            </marquee></h2><br>
+            {% for post in posts %}
+                {% if post.empty %}
+                <h2>No event yet </h2>
+                {% else %}
+                <div class="col-md-6 mb-3">
+                <div class="card">
+                    <img src="{{ post.image.url }}" style="height: 300px; object-fit: cover;" class="card-img-top" alt="{{ post.title }}">
+                    <div class="card-body">
+                    <p class="card-text float-end" >{{ post.date_posted }}</p><hr>
+                    <p class="card-text" >{{ post.description }}</p>
+                    <div class="row text-center">
+                    </div>  
+                    </div>
+                </div>
+                </div>
+                {%endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -2,10 +2,12 @@ from django.contrib.staticfiles.views import serve
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path,re_path
 from . import views
-from .views import AdminRegistrationView
+from .views import AdminRegistrationView,UserViewdetials,UserViewUpcoming
 from django.contrib.auth import views as auth_views
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('',views.homepage,name='home'),
@@ -22,6 +24,18 @@ urlpatterns = [
 
    #--------------------------admin uploads-----------------------
    path('adminpannel/gallery',login_required(views.AdminGallery),name='admingallery'),
+   path('adminpannel/upcoming',login_required(views.UpcomingTask),name='UpcomingTask'),
+
+
+   #------------------------------user urls----------------------------------------
+
+   path('gallery/',views.UserViewdetials.as_view(),name='usergallery'),
+   path('upcomging/',views.UserViewUpcoming.as_view(),name='userupcoming')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 

@@ -5,7 +5,7 @@ from PIL import Image
 
 class Gallery(models.Model):
     title = models.CharField(max_length=20)
-    image = models.FileField(upload_to='media')
+    image = models.FileField(upload_to='mediafiles')
     description = models.TextField()
     date_posted = models.DateTimeField(auto_now_add='true')
 
