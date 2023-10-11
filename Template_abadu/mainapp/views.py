@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404, render,redirect
 from .forms import GalleryForm,UpcomingEventForm,UserRegistrationForm
 from django.contrib.auth.models import User
 from django.views import View
@@ -26,6 +26,27 @@ def AdminRegistrationView(request):
     
 
 #---------------------------------gallery and upcoming task-----------------------
+class AdminUpdateDeleteView(View):
+    def put(request,pk):
+        item = get_object_or_404(Gallery, pk=pk)
+        if request.method == 'POST':
+            form = GalleryForm(request.POST, request.FILES, instance=item)
+            if form.is_valid():
+                form.save()
+                return redirect('admingallery')
+        else:
+            form = GalleryForm(instance=item)
+            return render(request, 'admin_pannel/gallery.html', {'form': form})
+        
+    #-----------------------delete function-------------------------------    
+    def delete(request,pk):
+        item = Gallery.objects.filter(pk=pk)
+        item.delete()
+        return redirect('admingallery')
+
+
+
+
 def AdminGallery(request):
     form = GalleryForm()
     posts = Gallery.objects.all()

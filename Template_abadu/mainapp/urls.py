@@ -2,7 +2,7 @@ from django.contrib.staticfiles.views import serve
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path,re_path
 from . import views
-from .views import AdminRegistrationView,UserViewdetials,UserViewUpcoming
+from .views import AdminRegistrationView,UserViewdetials,UserViewUpcoming,AdminUpdateDeleteView
 from django.contrib.auth import views as auth_views
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -25,12 +25,15 @@ urlpatterns = [
    #--------------------------admin uploads-----------------------
    path('adminpannel/gallery',login_required(views.AdminGallery),name='admingallery'),
    path('adminpannel/upcoming',login_required(views.UpcomingTask),name='UpcomingTask'),
+   path('gallery/update/<int:pk>/', login_required(AdminUpdateDeleteView.as_view()), name='update_gallery'),
+   path('gallery/delete/<int:pk>/', login_required(AdminUpdateDeleteView.as_view()), name='delete_gallery'),
 
 
    #------------------------------user urls----------------------------------------
 
    path('gallery/',views.UserViewdetials.as_view(),name='usergallery'),
    path('upcomging/',views.UserViewUpcoming.as_view(),name='userupcoming')
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()
