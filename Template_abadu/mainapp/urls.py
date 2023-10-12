@@ -27,12 +27,17 @@ urlpatterns = [
    path('adminpannel/upcoming',login_required(views.UpcomingTask),name='UpcomingTask'),
    path('gallery/update/<int:pk>/', login_required(views.UpdateGallery), name='update_gallery'),
    path('gallery/delete/<int:pk>/', login_required(views.deleteblog), name='delete_gallery'),
-
-
+   path('upcoming/update/<int:pk>/', login_required(views.UpdateUpcomingEvents), name='update_upcoming'),
+   path('upcoming/delete/<int:pk>/', login_required(views.deleteUpcoming), name='delete_upcoming'),
+   path('blogpost/', login_required(views.adminblogpost), name='blogpost'),
+   path('blogpost/update/<int:pk>/', login_required(views.UpdateBlogs), name='update_blog'),
+   path('blogpoct/delete/<int:pk>/', login_required(views.DeleteBlogs), name='delete_blog'),
    #------------------------------user urls----------------------------------------
 
    path('gallery/',views.UserViewdetials.as_view(),name='usergallery'),
-   path('upcomging/',views.UserViewUpcoming.as_view(),name='userupcoming')
+   path('upcomging/',views.UserViewUpcoming.as_view(),name='userupcoming'),
+   path('donation/site',views.donation,name='donationsite'),
+   path('userblog/',views.userblog, name='userblog'),
 
 ]
 

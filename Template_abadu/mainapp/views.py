@@ -1,17 +1,27 @@
 from django.shortcuts import get_object_or_404, render,redirect
-from .forms import GalleryForm,UpcomingEventForm,UserRegistrationForm
+from .forms import GalleryForm,UpcomingEventForm,UserRegistrationForm,BlogPostForm
 from django.contrib.auth.models import User
 from django.views import View
-from .models import Gallery,UpcomingEvent
+from .models import Gallery,UpcomingEvent,BlogPost
 
 def homepage(request):
-    return render(request,'index.html')
+    posts = BlogPost.objects.all()
+
+    counter = posts.count()
+
+    return render(request,'index.html',{'counter':counter})
 
 def aboutpage(request):
-    return render(request,'partials/about.html')
+    posts = BlogPost.objects.all()
+
+    counter = posts.count()
+    return render(request,'partials/about.html',{'counter':counter})
 
 def actionplan(request):
-    return render(request,'partials/actionplan.html')
+    posts = BlogPost.objects.all()
+
+    counter = posts.count()
+    return render(request,'partials/actionplan.html',{'counter':counter})
 
 #-------------------------registration section--------------------------------
 def AdminRegistrationView(request):
@@ -44,11 +54,45 @@ def deleteblog(request,pk):
     item.delete()
     return redirect('admingallery')
 
-
-
-
-
 #-----------------------------upcoming update function---------------------
+def UpdateUpcomingEvents(request, pk):
+    item = get_object_or_404(UpcomingEvent, pk=pk)
+    if request.method == 'POST':
+        form = UpcomingEventForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('UpcomingTask')
+    else:
+        form = GalleryForm(instance=item)
+    return render(request, 'admin_pannel/upcoming.html', {'form': form, 'item': item})
+
+
+#---------------------------------delete upcoming event------------------------
+def deleteUpcoming(request,pk):
+    item = UpcomingEvent.objects.filter(pk=pk)
+    item.delete()
+    return redirect('UpcomingTask')
+
+#-------------------------------------update blogs---------------------------------
+def UpdateBlogs(request, pk):
+    item = get_object_or_404(BlogPost, pk=pk)
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('blogpost')
+    else:
+        form = BlogPost()
+    return render(request, 'admin_pannel/blog.html', {'form': form, 'item': item})
+
+
+#---------------------------------delete blogs------------------------
+def DeleteBlogs(request,pk):
+    item = BlogPost.objects.filter(pk=pk)
+    item.delete()
+    return redirect('blogpost')
+
+#-----------------------------------admin gallery--------------------------
 def AdminGallery(request):
     form = GalleryForm()
     posts = Gallery.objects.all()
@@ -81,12 +125,48 @@ def UpcomingTask(request):
 #--------------------------------customer section-------------------------------------
 class UserViewdetials(View):
     def get(self,request):
+        posts = BlogPost.objects.all()
+
+        counter = posts.count()
         posts = Gallery.objects.all()
-        return render(request,'partials/gallery.html',{'posts':posts})
+        return render(request,'partials/gallery.html',{'posts':posts,'counter':counter})
     
     
 class UserViewUpcoming(View):
     def get(self,request):
         posts = UpcomingEvent.objects.all()
-        return render(request,'partials/upcoming.html',{'posts':posts})
+        post = BlogPost.objects.all()
+        counter = post.count()
+
+        return render(request,'partials/upcoming.html',{'posts':posts,'counter':counter})
     
+
+def donation(request):
+    posts = BlogPost.objects.all()
+
+    counter = posts.count()
+    return render(request,'partials/donate.html',{'counter':counter})
+
+#-------------------------blogpost----------------------------------------------
+
+def adminblogpost(request):
+    posts = BlogPost.objects.all()
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST)
+        if form.is_valid():
+            content = form.cleaned_data['content']
+            title = form.cleaned_data['title']
+            blog = BlogPostForm(content = content,title = title)
+            blog.save()
+            return redirect('blogpost')  
+    else:
+        form = BlogPostForm()                       
+        return render(request,'admin_pannel/blog.html',{'form':form,'posts':posts})
+    
+
+def userblog(request):
+    
+    posts = BlogPost.objects.all()
+    counter = posts.count()
+
+    return render(request,'partials/userblog.html',{'posts':posts,'counter':counter})

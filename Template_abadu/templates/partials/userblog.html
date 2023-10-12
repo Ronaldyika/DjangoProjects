@@ -1,0 +1,29 @@
+{% extends 'partials/nav.html' %}
+
+{% block title %}blog user{% endblock %}
+
+{% block content %}
+<br>
+<div class="container-fluid mt-5">
+
+    <h2 class="text-center mt-3"><marquee behavior="" direction="">News News News .........</marquee></h2><br>
+    <div class="card">
+        <div class="row text-center mt-3 p-2">
+            {% for post in posts %}
+            <div class="col-md-3 mb-3">
+              <div class="card">
+                <card class="title">
+                  <h6 class="card-title mt-2" ><u>{{ post.title }}</u></h6><br>
+                </card>
+                <div class="card-body">
+                  <p class="card-text" >{{ post.content }}</>
+                  <p class="float-end">by: {{ post.author.username }}</p>
+                  <hr>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+</div>
+{% endblock %}

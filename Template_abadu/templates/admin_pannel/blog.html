@@ -1,0 +1,60 @@
+{% extends 'admin_pannel/index.html' %}
+
+{% block title %}blog{% endblock %}
+
+{% block content %}
+<br>
+<div class="container-fluid mt-5">
+
+    <h2 class="text-center mt-3"><marquee behavior="" direction="">{{ user.username }} Welcome to the blog section</marquee></h2><br>
+    <div class="card">
+        <div class="row text-center mt-3 p-2">
+            {% for post in posts %}
+            <div class="col-md-3 mb-3">
+              <div class="card">
+                <div class="card-title">
+                  <h5 class="card-title mt-2" >{{ post.title }}</h5>
+                </div>
+                <div class="card-body">
+                  <p class="float-left" >{{ post.content }}</p>
+                  <p class="float-end">by: {{ post.author.username }}</p>
+                  <hr>
+                  <div class="row text-center">
+                    <div class="col-6">
+                      <button class="btn-button btn bg-danger btn-block m-3"><a href="{% url 'delete_blog' pk=post.pk  %}" style="text-decoration: none; color: white;">Delete</a></button>
+                    </div>
+                    <div class="col-6">
+                      <button class="btn-button btn bg-success btn-block m-3"><a href="{% url 'update_blog' pk=post.pk  %}" style="text-decoration: none; color: white;">Update</a></button>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-3 col-lg-3"></div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form">
+                    <form method="post"  class="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" name="title" id="title" aria-describedby="title" placeholder="Enter block title">
+                        </div><br>
+                        <div class="form-group">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea required="true" cols="10" rows="4"  name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+                        </div><br> 
+                        <button class="btn btn-button bg-secondary mt-2"><a href="{% url 'admingallery' %}" style="text-decoration: none; color: white;">Back</a></button>
+                        <button type="submit" class="btn btn-success float-right mt-2">Submit</button>
+                    </form><br>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

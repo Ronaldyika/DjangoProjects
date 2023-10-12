@@ -18,10 +18,10 @@
                   <p class="card-text" >{{ post.description }}</p>
                   <div class="row text-center">
                     <div class="col-6">
-                      <button class="btn-button btn bg-danger btn-block"><a href="" style="text-decoration: none; color: white;">Delete</a></button>
+                      <button class="btn-button btn bg-danger btn-block"><a href="{% url 'delete_upcoming' pk=post.pk  %}" style="text-decoration: none; color: white;">Delete</a></button>
                     </div>
                     <div class="col-6">
-                      <button class="btn-button btn bg-success btn-block"><a href="" style="text-decoration: none; color: white;">Update</a></button>
+                      <button class="btn-button btn bg-success btn-block"><a href="{% url 'update_upcoming' pk=post.pk  %}" style="text-decoration: none; color: white;">Update</a></button>
                     </div>
                   </div>  
                 </div>
@@ -45,7 +45,7 @@
                             <label for="image">Upload Image</label>
                             <input type="file" name="image"  id="image" class="form-control-file">
                         </div>
-                        <button class="btn btn-button bg-secondary mt-2"><a href="" style="text-decoration: none; color: white;">Back</a></button>
+                        <button class="btn btn-button bg-secondary mt-2"><a href="{% url 'admingallery' %}" style="text-decoration: none; color: white;">Back</a></button>
                         <button type="submit" class="btn btn-success float-right mt-2">Submit</button>
                     </form><br>
                 </div>
