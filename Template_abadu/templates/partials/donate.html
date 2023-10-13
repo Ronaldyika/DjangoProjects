@@ -7,8 +7,53 @@
 <div class="container my-5">
     <br>
     <div class="row mt-4"><br>
-        <h2>donation page</h2>
+        <div class="col-md-2 col lg-2"></div>
+        <div class="col-md-8 col lg-8">
+            <div class="form-group float-center">
+                <div class="card">
+                    <div class="card-title bg-secondary p-3">
+                        <marquee behavior="" direction="" class="mt-2">
+                            <h5>Abadu donation site</h5>
+                        </marquee>
+                    </div>
+                    <div class="card-body mt-2 mb-2 mx-5">
+                        <div class="username "><label for="username">Names</label></div>
+                        <div class="input-group">
+                            <input type="text" name="username" id="username">
+                        </div>
+                        <div class="email"><label for="email">Email</label></div>
+                        <div class="input-group">
+                            <input type="email" name="email" id="email">
+                        </div>
+                        <div class="phone"><label for="phone">Phone</label></div>
+                        <div class="input-group">
+                            <input type="tel" name="phone" id="phone" placeholder="+237" class="muted">
+                        </div>
+                        <div class="amount"><label for="amount">Amount</label></div>
+                        <div class="input-group">
+                            <input type="number" name="amount" id="amount">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-success mt-3" type="submit">donate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col lg-2">
+            <p>back <a href="{% url 'home' %}">home</a></p>
+        </div>
     </div>
 </div>
+<style>
+    input[type='text'],
+    input[type='number'],
+    input[type='email'],
+    input[type='tel']{
+        width: 80%;
+        border-radius: 1rem;
+        height: 5vh;
+    }
+</style>
 
 {% endblock %}
