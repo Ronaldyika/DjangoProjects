@@ -2,7 +2,7 @@ from django.contrib.staticfiles.views import serve
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path,re_path
 from . import views
-from .views import AdminRegistrationView,UserViewdetials,UserViewUpcoming
+from .views import AdminRegistrationView,UserViewdetials,UserViewUpcoming,AdminBlogPostView
 from django.contrib.auth import views as auth_views
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -29,7 +29,7 @@ urlpatterns = [
    path('gallery/delete/<int:pk>/', login_required(views.deleteblog), name='delete_gallery'),
    path('upcoming/update/<int:pk>/', login_required(views.UpdateUpcomingEvents), name='update_upcoming'),
    path('upcoming/delete/<int:pk>/', login_required(views.deleteUpcoming), name='delete_upcoming'),
-   path('blogpost/', login_required(views.adminblogpost), name='blogpost'),
+   path('blogpost/', login_required(AdminBlogPostView.as_view()), name='blogpost'),
    path('blogpost/update/<int:pk>/', login_required(views.UpdateBlogs), name='update_blog'),
    path('blogpoct/delete/<int:pk>/', login_required(views.DeleteBlogs), name='delete_blog'),
    #------------------------------user urls----------------------------------------

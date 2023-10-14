@@ -148,18 +148,22 @@ def donation(request):
     return render(request,'partials/donate.html',{'counter':counter})
 
 #-------------------------blogpost----------------------------------------------
-def adminblogpost(request):
-    if request.method == 'POST':
+
+class AdminBlogPostView(View):
+    def get(self, request):
+        posts = BlogPost.objects.all()
+        form = BlogPostForm()
+        return render(request, 'admin_pannel/blog.html', {'form': form, 'posts': posts})
+
+    def post(self, request):
         form = BlogPostForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('blogpost')
-    else:
+
+        posts = BlogPost.objects.all()
         form = BlogPostForm()
-
-    posts = BlogPost.objects.all()
-
-    return render(request, 'admin_pannel/blog.html', {'form': form, 'posts': posts})
+        return render(request, 'admin_pannel/blog.html', {'form': form, 'posts': posts})
 
 def userblog(request):
     
