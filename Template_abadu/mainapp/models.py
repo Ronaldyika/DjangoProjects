@@ -15,7 +15,7 @@ class UpcomingEvent(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
 
 class BlogPost(models.Model):
-    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    author = models.ForeignKey(User,on_delete=models.CASCADE,auto_created=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True,null=True)
